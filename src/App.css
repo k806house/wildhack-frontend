@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  background-color: lightgray;
 }
 
 .App-logo {
@@ -35,4 +36,17 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.main-container {
+  /* display: flex; */
+}
+
+#mapchart {
+  position:relative;
+  right:-35%;
+}
+
+#timeline {
+  width: 50%;
 }
