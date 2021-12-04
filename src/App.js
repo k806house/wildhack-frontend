@@ -4,10 +4,18 @@ import './App.css';
 import MapChart from "./MapChart";
 import TimelineComp from './Timeline';
 
+import { Row, Col } from 'antd';
+
 function App() {
   return (
     <div className="App">
-      <div className="main-container">
+      <Row>
+          <Col span={12}>
+            <TimelineComp />
+          </Col>
+          <Col span={12}>col-6</Col>
+      </Row>
+      {/* <div className="main-container">
         <div id="mapchart">
           <MapChart />
         </div>
@@ -15,7 +23,7 @@ function App() {
           <TimelineComp />
         </div>
         
-      </div>
+      </div> */}
     </div>
   );
 }
