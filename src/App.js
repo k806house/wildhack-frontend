@@ -2,14 +2,14 @@ import logo from './logo.svg';
 import './App.css';
 
 import MapChart from "./MapChart";
-import Timeline from './Timeline';
+import TimelineComp from './Timeline';
 
 function App() {
   return (
     <div className="App">
       <div className="main-container">
         <div id="timeline">
-          <Timeline />
+          <TimelineComp />
         </div>
         <div id="mapchart">
           <MapChart />
