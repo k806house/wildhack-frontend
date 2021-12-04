@@ -1,6 +1,6 @@
 .App {
   text-align: center;
-  background-color: lightgray;
+  /* background-color: #1f182d; */
 }
 
 .App-logo {
@@ -49,4 +49,6 @@
 
 #timeline {
   width: 50%;
+  top: 0;
+  position: absolute;
 }
