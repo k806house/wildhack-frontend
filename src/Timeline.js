@@ -1,73 +1,56 @@
-import {React, useState} from "react";
-import "./Timeline.css"
+import { React, useState } from "react";
+import "./Timeline.css";
 
-import 'antd/dist/antd.css';
-import { Table, Divider, Timeline } from 'antd';
+import "antd/dist/antd.css";
+import { Table, Timeline } from "antd";
 
-import { Layout } from 'antd';
-import { Row, Col } from 'antd';
+import { Row, Col } from "antd";
 
-const { Header, Footer, Sider, Content } = Layout;
 
-const columns = [
+const TimelineComp = (props) => {
+  var years = props.years;
+  var data = props.data;
+  const columns = [
     {
-      title: 'Дата',
-      dataIndex: 'date',
-      key: 'date',
-      render: text => <a>{text}</a>,
+      title: "Дата",
+      dataIndex: "date",
+      key: "date",
     },
     {
-      title: 'Событие',
-      dataIndex: 'event',
-      key: 'event',
+      title: "Событие",
+      dataIndex: "event",
+      key: "event",
+    },
+    {
+      title: "Локация",
+      dataIndex: "location",
+      render: (text, record, rowIndex) => <a onClick={() => {props.onTableClick(rowIndex); console.log(record); console.log(rowIndex)}}>{text}</a>,
     }
   ];
-  
-  const data = [
-    {
-      key: '1',
-      date: '10.05.2000',
-      event: 'New York No. 1 Lake Park',
-    },
-    {
-      key: '2',
-      date: '12.08.2000',
-      event: 'London No. 1 Lake Parkли илавитовив aвли илавитовив arаломвли илавитовив arkоомвли илавитовив arkормвли илавитовив arkор илавитовив',
-    },
-    {
-      key: '3',
-      date: '13.10.2000',
-      event: 'Sidney No. 1 Lake Park',
-    },
-  ];
+  return (
+    <Row>
+      <Col span={8}>
+        <Timeline mode="right" id="timeline">
+          {years.map((year, key) => (
+            <Timeline.Item id="timeline-item" key={key}>
+              <a id="timeline-item" onClick={() => props.onClick(key)}>
+                {year}
+              </a>
+            </Timeline.Item>
+          ))}
+        </Timeline>
+      </Col>
+      <Col span={16}>
+        <Table
+          id="table"
+          pagination={false}
+          columns={columns}
+          dataSource={data}
+          scroll={{ y: 600 }}
+        />
+      </Col>
+    </Row>
+  );
+};
 
-const TimelineComp = () => {
-    return (
-        <div id="timeline-container">
-          <Row>
-            <Col span={4}>
-              <Timeline mode="right">
-                <Timeline.Item>
-                    <a>2020</a>
-                </Timeline.Item>
-                <Timeline.Item>
-                    <a>2020</a>
-                </Timeline.Item>
-                <Timeline.Item>
-                    <a>2020</a>
-                </Timeline.Item>
-                <Timeline.Item>
-                    <a>2020</a>
-                </Timeline.Item>
-            </Timeline>
-            </Col>
-            <Col span={13}>
-              <Table pagination={false} columns={columns} dataSource={data} />
-            </Col>
-          </Row>
-        </div>
-
-    );
-  };
-  
-  export default TimelineComp;
+export default TimelineComp;

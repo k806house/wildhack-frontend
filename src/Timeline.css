@@ -1,7 +1,21 @@
-/* #timeline-container {
-    display: flex;
-} */
+#timeline-item {
+    margin: 45px 5px;
+    font-size: 24px;
+}
 
-/* .Timeline {
-    display: inline;
-} */
+#timeline {
+    margin-right: 90px;
+}
+
+#table {
+    margin-top: 45px;
+    font-size: 15px;
+}
+
+.ant-timeline-item-tail {
+    height: 100px !important;
+}
+
+.ant-timeline-item-head{
+    margin-top: 6px !important;
+}

@@ -1,6 +1,5 @@
 .App {
   text-align: center;
-  /* background-color: #1f182d; */
 }
 
 .App-logo {
@@ -29,6 +28,12 @@
   color: #61dafb;
 }
 
+#header{
+  margin-left: 125px;
+  margin-top: 20px;
+  margin-bottom: -20px;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
@@ -36,19 +41,4 @@
   to {
     transform: rotate(360deg);
   }
-}
-
-.main-container {
-  /* display: flex; */
-}
-
-#mapchart {
-  position:relative;
-  right:-35%;
-}
-
-#timeline {
-  width: 50%;
-  top: 0;
-  position: absolute;
 }
