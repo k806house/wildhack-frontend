@@ -1,21 +1,26 @@
 #timeline-item {
-    margin: 45px 5px;
-    font-size: 24px;
+  margin: 45px 5px;
+  font-size: 24px;
 }
 
 #timeline {
-    margin-right: 90px;
+  margin-right: 90px;
 }
 
 #table {
-    margin-top: 45px;
-    font-size: 15px;
+  margin-top: 45px;
+  font-size: 15px;
 }
 
 .ant-timeline-item-tail {
-    height: 100px !important;
+  height: 100px !important;
 }
 
-.ant-timeline-item-head{
-    margin-top: 6px !important;
+.ant-timeline-item-head {
+  margin-top: 6px !important;
+  border-color: rgb(0, 194, 32) !important;
+}
+
+a {
+  color: rgb(0, 194, 32) !important;
 }

@@ -34,6 +34,10 @@
   margin-bottom: -20px;
 }
 
+#Geography{
+  border: 0;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
