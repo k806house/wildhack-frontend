@@ -91,13 +91,12 @@ const TimelineComp = (props) => {
         <h1>Come to Kam!</h1>
         <Table
           id="table"
-          pagination={false}
           columns={columns}
           dataSource={data}
-          scroll={{ y: 700 }}
+          scroll={{ y: 670 }}
           onRow={(record, rowIndex) => {
             return {
-              onClick: event => {setTitle(record.title); setText(record.text); showDrawer()}, // click row
+              onDoubleClick: event => {setTitle(record.title); setText(record.text); showDrawer()}, // click row
             };
           }}
         />
