@@ -9,7 +9,7 @@ import {
 const geoUrl =
   "https://raw.githubusercontent.com/blizliz/map/main/kamchatka.json";
 
-const colors = ["", "#ff7877", "#92ea8f", "#8ce95f"]
+const colors = ["", "#ff7877", "#7dbbff", "#8ce95f"]
 const colorsFill = ["", "#f5071d", "#1a90ff", "#47da14"]
 
 const MapChart = (props) => {
