@@ -7,6 +7,9 @@ import TimelineComp from "./Timeline";
 
 import { Row, Col } from "antd";
 
+import JsonData from './data.json';
+import JsonDataBatches from './dates.json';
+
 const data = [
   [
     {
@@ -135,42 +138,60 @@ const data = [
   ],
 ];
 
-const years = [2015, 2016, 2017, 2018, 2019, 2020, 2021];
+const dateBuckets = [
+  "02.2015",
+  "01.2016",
+  "08.2016",
+  "09.2018",
+  "04.2019",
+  "03.2020",
+  "05.2021",
+  "07.2025",
+  "08.2026",
+  "03.2067",
+  "09.2098",
+  "03.2119",
+  "04.2120",
+  "08.2121",
+];
 
 function App() {
   const [curYearIndex, setCurYearIndex] = useState(
-    Math.floor(years.length / 2)
+    Math.floor(JsonDataBatches.length / 2)
   );
-  const [curData, setCurData] = useState(data[curYearIndex]);
-  const [curTableIndex, setCurTableIndex] = useState(-1);
+  const [curData, setCurData] = useState(JsonData[curYearIndex]);
   const [coords, setCoords] = useState([]);
+
+  var year = 2000;
+  var buckets = JsonDataBatches.map((value) => {
+    if (+value.slice(3, 7) !== year) {
+      year = +value.slice(3, 7);
+      return value;
+    } 
+    else {
+      return value.slice(0,2)
+    }
+  });
 
   return (
     <div className="App">
-      <Row>
-        <Col id="header">
-          <h1>Hello zapovednik!</h1>
-        </Col>
-      </Row>
       <Row justify="center">
-        <Col span={12}>
+        <Col span={14}>
           <TimelineComp
-            years={years}
+            dateBuckets={buckets}
             data={curData}
             onClick={(x) => {
               setCurYearIndex(x);
-              setCurData(data[x]);
-              console.log("onClick",coords);
+              setCurData(JsonData[x]);
             }}
             onTableClick={(x) => {
-              setCurTableIndex(x);
               var c = curData[x];
-              if (coords.length==0 || coords[0].name !== c.name)
-                setCoords([{ name: c.name, x: c.x, y: c.y }]);
+              if (coords.length === 0 || coords[0].name !== c.name)
+                setCoords([{ name: c.location, x: c.lat, y: c.lon }]);
             }}
           />
         </Col>
-        <Col span={12} justify="left">
+        <Col span={10} justify="left">
           <MapChart coords={coords} />
         </Col>
       </Row>

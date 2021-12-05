@@ -1,14 +1,27 @@
 #timeline-item {
-  margin: 45px 5px;
   font-size: 24px;
 }
 
+#timeline-item a{
+    font-size: 20px;
+}
+
+#timeline-item span{
+    font-size: 18px;
+}
+
 #timeline {
+  margin-top: -20px;
   margin-right: 90px;
+  height: 960px;
+  overflow-y: scroll;
+}
+::-webkit-scrollbar {
+  display: none;
 }
 
 #table {
-  margin-top: 45px;
+  margin-top: 10px;
   font-size: 15px;
 }
 
@@ -18,4 +31,15 @@
 
 .ant-timeline-item-head {
   margin-top: 6px !important;
+}
+
+#timeline-item-clear .ant-timeline-item-head {
+    color: white;
+    border: 0;
+    margin-top: 6px !important;
+}
+
+h1 {
+    padding-top: 15px;
+    text-align: left;
 }

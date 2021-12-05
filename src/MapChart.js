@@ -19,11 +19,11 @@ const MapChart = (props) => {
     <ComposableMap
       projectionConfig={{
         rotate: [-90, -20, 0],
-        center: [51, 133],
-        scale: 1200,
+        center: [50, 133],
+        scale: 1400,
       }}
       width={400}
-      height={350}
+      height={400}
       style={{
         width: "100%",
         height: "auto",
@@ -48,12 +48,11 @@ const MapChart = (props) => {
       </Geographies>
       {markers.map(({ name, coordinates, markerOffset }) => (
         <Marker key={name} coordinates={coordinates}>
-          <circle r={3} fill="#F00" stroke="#fff" strokeWidth={1} />
+          <circle r={7} fill="#1a90ff" stroke="#7dbbff" strokeWidth={3}/>
           <text
             textAnchor="middle"
             y={markerOffset}
-            style={{ fontFamily: "system-ui", fill: "#5D5A6D", fontSize: 7 }}
-          >
+            style={{ fontFamily: "system-ui", fill: "#5D5A6D", fontSize: 12 }}>
             {name}
           </text>
         </Marker>
