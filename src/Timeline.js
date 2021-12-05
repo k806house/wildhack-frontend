@@ -32,22 +32,6 @@ const TimelineComp = (props) => {
       title: "Событие",
       dataIndex: "title",
       key: "title",
-      render: (text) => text
-        // text != undefined && text.length > 100 ? (
-        //   <span>
-        //     {text.substr(0, 100)}
-        //     <a
-        //       onClick={() => {
-        //         setText(text);
-        //         showDrawer();
-        //       }}>
-        //       {" "}
-        //       ...
-        //     </a>
-        //   </span>
-        // ) : (
-        //   text
-        // ),
     },
     {
       title: "Локация",
@@ -55,7 +39,7 @@ const TimelineComp = (props) => {
       render: (text, record, rowIndex) => (
         <a
           onClick={() => {
-            props.onTableClick(rowIndex);
+            props.onTableClick(record.location, record.lat, record.lon);
           }}
         >
           {text}

@@ -40,12 +40,9 @@ function App() {
               setCurYearIndex(x);
               setCurData(JsonData[x]);
             }}
-            onTableClick={(x) => {
-              var c = curData[x];
-              if (coords.length === 0 || coords[0].name !== c.name)
-                {console.log("new coords", c.location);
-                  setCoords([{ name: c.location, x: c.lat, y: c.lon }]);}
-                  else{console.log("old")}
+            onTableClick={(location, lat, lon) => {
+              if (coords.length === 0 || coords[0].name !== location)
+                  setCoords([{ name: location, x: lat, y: lon }]);
             }}
           />
         </Col>
