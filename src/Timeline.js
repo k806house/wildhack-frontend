@@ -2,9 +2,9 @@ import { React, useState } from "react";
 import "./Timeline.css";
 
 import "antd/dist/antd.css";
-import { Table, Timeline } from "antd";
-
+import { Table, Timeline, Button, Space } from "antd";
 import { Row, Col } from "antd";
+import { DislikeOutlined, LikeOutlined } from '@ant-design/icons';
 
 
 const TimelineComp = (props) => {
@@ -25,6 +25,20 @@ const TimelineComp = (props) => {
       title: "Локация",
       dataIndex: "location",
       render: (text, record, rowIndex) => <a onClick={() => {props.onTableClick(rowIndex); console.log(record); console.log(rowIndex)}}>{text}</a>,
+    },
+    {
+      title: "Событие важно?",
+      dataIndex: "isimportant",
+      render: () => (
+        <Space size="middle">
+          <Button>
+            <LikeOutlined /> 
+          </Button>
+          <Button>
+            <DislikeOutlined />
+          </Button>
+        </Space>
+      ),
     }
   ];
   return (
