@@ -13,7 +13,7 @@
 #timeline {
   margin-top: -20px;
   margin-right: 90px;
-  height: 960px;
+  height: 920px;
   overflow-y: scroll;
 }
 ::-webkit-scrollbar {

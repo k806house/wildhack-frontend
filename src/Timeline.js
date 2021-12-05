@@ -36,10 +36,10 @@ const TimelineComp = (props) => {
     {
       title: "Локация",
       dataIndex: "location",
-      render: (text, record, rowIndex) => (
+      render: (text, record) => (
         <a
           onClick={() => {
-            props.onTableClick(record.location, record.lat, record.lon);
+            props.onTableClick(record.location, record.lat, record.lon, record.color);
           }}
         >
           {text}
