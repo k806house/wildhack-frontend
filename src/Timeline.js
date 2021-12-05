@@ -14,6 +14,7 @@ const TimelineComp = (props) => {
   const [container, setContainer] = useState(null);
   const [visible, setVisible] = useState(false);
   const [text, setText] = useState("");
+  const [title, setTitle] = useState("");
   const showDrawer = () => {
     setVisible(true);
   };
@@ -31,22 +32,22 @@ const TimelineComp = (props) => {
       title: "Событие",
       dataIndex: "title",
       key: "title",
-      render: (text) =>
-        text != undefined && text.length > 100 ? (
-          <span>
-            {text.substr(0, 100)}
-            <a
-              onClick={() => {
-                setText(text);
-                showDrawer();
-              }}>
-              {" "}
-              ...{" "}
-            </a>
-          </span>
-        ) : (
-          text
-        ),
+      render: (text) => text
+        // text != undefined && text.length > 100 ? (
+        //   <span>
+        //     {text.substr(0, 100)}
+        //     <a
+        //       onClick={() => {
+        //         setText(text);
+        //         showDrawer();
+        //       }}>
+        //       {" "}
+        //       ...
+        //     </a>
+        //   </span>
+        // ) : (
+        //   text
+        // ),
     },
     {
       title: "Локация",
@@ -62,7 +63,6 @@ const TimelineComp = (props) => {
       ),
     },
   ];
-  console.log(dateBuckets);
 
   return (
     <Row>
@@ -94,12 +94,17 @@ const TimelineComp = (props) => {
           pagination={false}
           columns={columns}
           dataSource={data}
-          scroll={{ y: 600 }}
+          scroll={{ y: 700 }}
+          onRow={(record, rowIndex) => {
+            return {
+              onClick: event => {setTitle(record.title); setText(record.text); showDrawer()}, // click row
+            };
+          }}
         />
       </Col>
       <Col>
         <Drawer
-          title="Drawer with extra actions"
+          title={title}
           placement="left"
           width={1000}
           onClose={onClose}
